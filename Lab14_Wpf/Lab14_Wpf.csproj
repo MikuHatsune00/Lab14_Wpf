@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Data\coffee.png" />
+    <None Remove="Data\huawei laptop.png" />
+    <None Remove="Data\smoothie.png" />
+    <None Remove="Data\xiaomi phone.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Data\coffee.png" />
+    <Resource Include="Data\huawei laptop.png" />
+    <Resource Include="Data\smoothie.png" />
+    <Resource Include="Data\xiaomi phone.png" />
+  </ItemGroup>
+
+</Project>

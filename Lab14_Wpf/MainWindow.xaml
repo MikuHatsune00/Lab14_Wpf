@@ -1,0 +1,40 @@
+﻿<Window x:Class="Lab14_Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab14_Wpf"
+        mc:Ignorable="d"
+        Title="Product catalog" Height="650" Width="480">
+    <Window.Resources>
+        <DataTemplate x:Key="myTemplate">
+            <Border x:Name="border" BorderBrush="HotPink" BorderThickness="2" CornerRadius="10" Padding="5" Margin="5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="150"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Image Grid.Row="0" Grid.Column="0" Width="100" Height="100" Source="{Binding Path=ProductImage}" />
+                    <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Path=ProductName}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding Path=ProductPrice}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Grid>
+            </Border>
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding Path=ProductType}">
+                    <DataTrigger.Value>
+                        <local:ProductTypes>Beverages</local:ProductTypes>
+                    </DataTrigger.Value>
+                    <Setter TargetName="border" Property="BorderBrush" Value="Aqua"/>
+                </DataTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+    </Window.Resources>
+    <StackPanel>
+        <ListBox Name="lstBox" Width="480" Margin="10" ItemTemplate="{StaticResource myTemplate}" HorizontalAlignment="Stretch"/>
+    </StackPanel>
+</Window>
+ 
